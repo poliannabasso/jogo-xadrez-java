@@ -11,14 +11,14 @@ public class UserInterface {
                 printPeace(piece[i][j]);
              System.out.println();
         }
-        System.out.println("  a b c d e f g h");
+        System.out.println("  a  b  c  d  e  f  g  h");
     }
     
     private static void printPeace(ChessPiece piece){
         if(piece == null)
             System.out.print("-");
         else
-            System.out.println(piece);
-        System.out.print(" ");
+            System.out.print(piece);
+        System.out.print("  ");
     }
 }
