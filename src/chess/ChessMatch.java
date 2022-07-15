@@ -2,9 +2,11 @@ package chess;
 
 import boardgame.Board;
 import chess.pieces.Bishop;
+import chess.pieces.Horse;
 import chess.pieces.King;
 import chess.pieces.Pawn;
 import chess.pieces.Queen;
+import chess.pieces.Rook;
 
 public class ChessMatch {
     private Board board;
@@ -28,9 +30,27 @@ public class ChessMatch {
     }
     
     private void initialSetup(){
+        
+        placeNewPiece('a', 1, new Rook(Color.WHITE, board));
+        placeNewPiece('b', 1, new Horse(Color.WHITE, board));
+        placeNewPiece('c', 1, new Bishop(Color.WHITE, board));
+        placeNewPiece('d', 1, new Queen(Color.WHITE, board));
+        placeNewPiece('e', 1, new King(Color.WHITE, board));
+        placeNewPiece('f', 1, new Bishop(Color.WHITE, board));
+        placeNewPiece('g', 1, new Horse(Color.WHITE, board));
+        placeNewPiece('h', 1, new Rook(Color.WHITE, board));
+        for (int i = 0; i < 8; i++) 
+            placeNewPiece((char)('a'+i), 2, new Pawn(Color.WHITE, board));
+
+        placeNewPiece('a', 8, new Rook(Color.BLACK, board));
+        placeNewPiece('b', 8, new Horse(Color.BLACK, board));
+        placeNewPiece('c', 8, new Bishop(Color.BLACK, board));
+        placeNewPiece('d', 8, new Queen(Color.BLACK, board));
         placeNewPiece('e', 8, new King(Color.BLACK, board));
-        placeNewPiece('f', 4, new Bishop(Color.WHITE, board));
-        placeNewPiece('e', 2, new Pawn(Color.WHITE, board));
-        placeNewPiece('b', 6, new Queen(Color.BLACK, board));
+        placeNewPiece('f', 8, new Bishop(Color.BLACK, board));
+        placeNewPiece('g', 8, new Horse(Color.BLACK, board));
+        placeNewPiece('h', 8, new Rook(Color.BLACK, board));
+        for (int i = 0; i < 8; i++) 
+            placeNewPiece((char)('a'+i), 7, new Pawn(Color.BLACK, board));
     }
-}
+} 
