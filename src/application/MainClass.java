@@ -1,9 +1,12 @@
 package application;
 
+import boardgame.Position;
+
 public class MainClass {
 
     public static void main(String[] args) {
-        System.out.println("Imprimindo");
+        Position position = new Position(3, 5);
+        System.out.println(position);
     }
     
 }
