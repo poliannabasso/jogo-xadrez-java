@@ -1,6 +1,8 @@
 package chess;
 
 import boardgame.Board;
+import boardgame.Piece;
+import boardgame.Position;
 import chess.pieces.Bishop;
 import chess.pieces.Horse;
 import chess.pieces.King;
@@ -25,12 +27,39 @@ public class ChessMatch {
         return chessPiece;
     }
     
+    public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition){
+        Position source = sourcePosition.toPosition();
+        Position target = targetPosition.toPosition();
+        validateSourcePosition(source);
+        validateTargetPosition(source, target);
+        Piece capturedPiece = makeMove(source, target);
+        return (ChessPiece) capturedPiece;
+    }
+    
+    private Piece makeMove(Position source, Position target){
+        Piece piece = board.removePiece(source);
+        Piece capturedPiece =  board.removePiece(target);
+        board.placePiece(piece, target);
+        return capturedPiece; 
+    }
+    
+    private void validateSourcePosition(Position position){
+        if(!board.thereIsAPiece(position))
+            throw new ChessException("No piece on source position");
+        if(!board.piece(position).isThereAnyPossibleMove())
+            throw new ChessException("No moves possible");
+    }
+    
+    private void validateTargetPosition(Position source, Position target){
+        if(!board.piece(source).possibleMove(target))
+            throw new ChessException("Movement is not possible");
+    }
+     
     private void placeNewPiece(Character column, Integer row, ChessPiece piece){
         board.placePiece(piece, new ChessPosition(column, row).toPosition());        
     }
     
     private void initialSetup(){
-        
         placeNewPiece('a', 1, new Rook(Color.WHITE, board));
         placeNewPiece('b', 1, new Horse(Color.WHITE, board));
         placeNewPiece('c', 1, new Bishop(Color.WHITE, board));

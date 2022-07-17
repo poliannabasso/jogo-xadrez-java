@@ -1,7 +1,10 @@
 package application;
 
 import chess.ChessPiece;
+import chess.ChessPosition;
 import chess.Color;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class UserInterface {
     public static final String ANSI_RESET = "\u001B[0m";
@@ -21,7 +24,18 @@ public class UserInterface {
     public static final String ANSI_PURPLE_BACKGROUND = "\u001B[45m";
     public static final String ANSI_CYAN_BACKGROUND = "\u001B[46m";
     public static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
-        
+    
+    public static ChessPosition readChessPosition(Scanner s){
+        try {
+            String position = s.nextLine();
+            char column = position.charAt(0);
+            int row = Integer.parseInt(position.substring(1));
+            return new ChessPosition(column, row);            
+        } catch (RuntimeException e) {
+            throw new InputMismatchException("Error reading ChessPosition");
+        }
+    }
+    
     public static void printBoard(ChessPiece[][] piece) {
         System.out.println();
         for (int i = 0; i < piece.length; i++ ) {
@@ -43,5 +57,10 @@ public class UserInterface {
                 System.out.print(ANSI_CYAN + piece + ANSI_RESET);
         }
         System.out.print("  ");
+    }
+    
+    public static void clearScreen(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 }

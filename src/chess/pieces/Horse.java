@@ -14,4 +14,12 @@ public class Horse extends ChessPiece{
     public String toString() {
         return "H";
     }
+
+    @Override
+    public boolean[][] possibleMoves() {
+        boolean[][] move = new boolean[getBoard().getRow()][getBoard().getColumn()];
+        
+        //implementar movimento
+        return move;
+    }    
 }
