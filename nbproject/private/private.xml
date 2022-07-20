@@ -5,8 +5,9 @@
         <group>
             <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/chess/ChessMatch.java</file>
             <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/chess/pieces/Rook.java</file>
-            <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/application/MainClass.java</file>
+            <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/chess/ChessPiece.java</file>
             <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/application/UserInterface.java</file>
+            <file>file:/C:/Users/polia/Desktop/java/jogo-xadrez/src/application/App.java</file>
         </group>
     </open-files>
 </project-private>

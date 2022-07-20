@@ -20,9 +20,7 @@ public class Queen extends ChessPiece{
     public boolean[][] possibleMoves() {
         boolean[][] move = new boolean[getBoard().getRow()][getBoard().getColumn()];
         Position positionAux =  new Position(0,0); 
-        
-        //implementar movimento sobre peças
-        
+                
         positionAux.setValues(position.getRow()-1, position.getColumn());
         while(getBoard().positionExistis(positionAux) && !getBoard().thereIsAPiece(positionAux)){
             move[positionAux.getRow()][positionAux.getColumn()] = true;
