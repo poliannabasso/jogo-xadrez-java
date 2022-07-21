@@ -29,11 +29,15 @@ public class App {
                 ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
                 if(capturedPiece != null)
                     captured.add(capturedPiece);
+                if(chessMatch.getPromoted() != null){
+                    System.out.println("Enter piece for promotion:");
+                    chessMatch.replacePromotedPiece(s.nextLine());
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 s.nextLine();
             } 
-        }
+        } 
         UserInterface.clearScreen();
         UserInterface.printMatch(chessMatch, captured);
     }
